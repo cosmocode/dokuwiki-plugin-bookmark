@@ -1,0 +1,7 @@
+base   bookmark
+author Otto Vainio
+email  otto@valjakko.net
+date   2005-08-01
+name   Bookmark Plugin
+desc   Insert a link anchor into the page
+url    https://www.dokuwiki.org/plugin:bookmark
