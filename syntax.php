@@ -20,17 +20,17 @@ class syntax_plugin_bookmark extends DokuWiki_Syntax_Plugin
     /**
      * What kind of syntax are we?
      */
-    function getType()
+    public function getType()
     {
         return 'substition';
     }
 
-    function getSort()
+    public function getSort()
     {
         return 357;
     }
 
-    function connectTo($mode)
+    public function connectTo($mode)
     {
         $this->Lexer->addSpecialPattern('<BOOKMARK:\w+>', $mode, 'plugin_bookmark');
     }
@@ -39,7 +39,7 @@ class syntax_plugin_bookmark extends DokuWiki_Syntax_Plugin
     /**
      * Handle the match
      */
-    function handle($match, $state, $pos, &$handler)
+    public function handle($match, $state, $pos, Doku_Handler $handler)
     {
         $match = substr($match, 10, -1); //strip <BOOKMARK: from start and > from end
         return array(strtolower($match));
@@ -48,7 +48,7 @@ class syntax_plugin_bookmark extends DokuWiki_Syntax_Plugin
     /**
      * Create output
      */
-    function render($mode, &$renderer, $data)
+    public function render($mode, Doku_Renderer $renderer, $data)
     {
         if ($mode == 'xhtml') {
             $renderer->doc .= '<a name="' . $data[0] . '"></a>';
