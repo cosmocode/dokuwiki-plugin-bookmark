@@ -7,12 +7,8 @@
  */
 
 if (!defined('DOKU_INC')) {
-    define('DOKU_INC', realpath(dirname(__FILE__) . '/../../') . '/');
+    die('must be run from within DokuWiki');
 }
-if (!defined('DOKU_PLUGIN')) {
-    define('DOKU_PLUGIN', DOKU_INC . 'lib/plugins/');
-}
-require_once(DOKU_PLUGIN . 'syntax.php');
 
 /**
  * All DokuWiki plugins to extend the parser/rendering mechanism
@@ -20,21 +16,6 @@ require_once(DOKU_PLUGIN . 'syntax.php');
  */
 class syntax_plugin_bookmark extends DokuWiki_Syntax_Plugin
 {
-
-    /**
-     * return some info
-     */
-    function getInfo()
-    {
-        return array(
-            'author' => 'Otto Vainio',
-            'email' => 'bookmark.plugin@valjakko.net',
-            'date' => '2005-08-01',
-            'name' => 'Bookmark plugin',
-            'desc' => 'a bookmark <a name=\'name\'></a>',
-            'url' => 'http://wiki.splitbrain.org/wiki:plugins',
-        );
-    }
 
     /**
      * What kind of syntax are we?
@@ -76,5 +57,3 @@ class syntax_plugin_bookmark extends DokuWiki_Syntax_Plugin
         return false;
     }
 }
-
-?>
