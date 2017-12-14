@@ -41,8 +41,8 @@ class syntax_plugin_bookmark extends DokuWiki_Syntax_Plugin
      */
     public function handle($match, $state, $pos, Doku_Handler $handler)
     {
-        $match = substr($match, 10, -1); //strip <BOOKMARK: from start and > from end
-        return array(strtolower($match));
+        $bookMarkString = substr($match, 10, -1); //strip <BOOKMARK: from start and > from end
+        return array(strtolower($bookMarkString));
     }
 
     /**
@@ -50,7 +50,7 @@ class syntax_plugin_bookmark extends DokuWiki_Syntax_Plugin
      */
     public function render($mode, Doku_Renderer $renderer, $data)
     {
-        if ($mode == 'xhtml') {
+        if ($mode === 'xhtml') {
             $renderer->doc .= '<a name="' . $data[0] . '"></a>';
             return true;
         }
